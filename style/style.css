@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+body {
+    font-family: Lato, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header img {
+    margin-top: auto;
+}
+
+
+nav {
+    padding: 20px 0px;
+    text-align: center;
+}
+
+nav a {
+    margin: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+main {
+    width: 750px;
+    background-color: #F6F6F9;
+    background-color: white;
+    
+
+}
+
+main section {
+    width: 500px;
+    height: auto;
+    border-radius: 20px;
+
+}
+
+.main1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main-container {
+    width: 750px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: #F6F6F9;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+section h2 {
+    font-size: 19px;
+
+}
+
+.main2 {
+    width: 100%;
+    
+}
+
+#novaTarefa {
+    border-radius: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.novaTarefa2 {
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: #F6F6F9;
+    width: 550px;
+    margin-right: 10%;
+    margin-left: 10%;
+
+
+}
+
+
+#inputNovaTarefa {
+    font-family: Lato, sans-serif;
+    padding: 0px 10px;
+    height: 40px;
+    width: 85%;
+    border-radius: 5px;
+    border: 1px solid #0CCBDE;
+
+
+    
+}
+
+@media (max-width: 770px) {
+    #inputNovaTarefa {
+        width: 83%;
+    }
+    
+}
+
+@media (max-width: 414px) {
+    #inputNovaTarefa {
+        width: 70%;
+    }
+
+    
+}
+
+@media (max-width: 390px) {
+    #inputNovaTarefa {
+        width: 65%;
+    }
+    
+}
+
+@media (max-width: 280px) {
+    #inputNovaTarefa {
+        width: 50%;
+        
+    }
+    
+}
+
+#btnNovaTarefa {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    background-color: #0CCBDE;
+
+}
+
+#btnNovaTarefa:hover {
+    transform: scale(1.1);
+}
+
+#listaDeTarefas {
+    margin: 0;
+    border-radius: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.listaDeTarefas {
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: #F6F6F9;
+    width: 550px;
+    margin-right: 10%;
+    margin-left: 10%;
+
+
+}
+
+#listaDeTarefas ul {
+    border: 0;
+    padding: 0;
+
+}
+
+#listaDeTarefas li {
+    list-style: none;
+    padding: 20px 10px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 10px;    
+
+
+}
+
+#listaDeTarefas li:hover {
+    background-color: #0CCBDE;
+    color: #ffffff;
+}
