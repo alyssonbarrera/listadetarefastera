@@ -180,9 +180,15 @@ section h2 {
     padding: 20px 10px;
     margin: 20px;
     background-color: #fff;
-    border-radius: 10px;    
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+}
 
+.lixeira{
+    display: none
 }
 
 #listaDeTarefas li:hover {

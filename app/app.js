@@ -1,4 +1,4 @@
-console.log('mensagem')
+/* console.log('mensagem')
 
 let tarefa1 = "Ir ao supermercado"
 let tarefa2 = "Estudar programação"
@@ -69,3 +69,30 @@ console.log('----------- Depois da nova tarefa -----------')
 
 console.log(Tarefas)
 ExibirTarefas(5)
+*/
+
+let inputNovaTarefa = document.querySelector('#inputNovaTarefa')
+let button = document.querySelector('#btnNovaTarefa')
+let li = document.querySelector('li')
+let lixeira = document.querySelector('.lixeira')
+
+
+let listaTarefas = document.querySelector('ul')
+
+function addNovaTarefa () {
+
+    if (inputNovaTarefa.value === " ") {
+        inputNovaTarefa.value === ""
+    } else if (inputNovaTarefa.value != "") {
+        listaTarefas.innerHTML += `<li>${inputNovaTarefa.value}</li>`
+    } else {
+        inputNovaTarefa.value === ""
+    }
+}
+
+function clean () {
+    inputNovaTarefa.value = ""
+}
+
+button.addEventListener ('click', addNovaTarefa)
+button.addEventListener('click', clean)
