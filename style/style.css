@@ -187,11 +187,15 @@ section h2 {
 
 }
 
-.lixeira{
-    display: none
-}
-
 #listaDeTarefas li:hover {
     background-color: #0CCBDE;
     color: #ffffff;
 }
+
+.aberta{
+    text-decoration: none;
+  }
+  
+  .concluida{
+      text-decoration: line-through;
+  }

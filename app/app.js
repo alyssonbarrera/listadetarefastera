@@ -75,24 +75,43 @@ let inputNovaTarefa = document.querySelector('#inputNovaTarefa')
 let button = document.querySelector('#btnNovaTarefa')
 let li = document.querySelector('li')
 let lixeira = document.querySelector('.lixeira')
+let Lis =  document.getElementsByTagName('li')
 
+todosLi = [Lis]
+
+let tarefas = []
 
 let listaTarefas = document.querySelector('ul')
 
 function addNovaTarefa () {
 
     if (inputNovaTarefa.value === " ") {
-        inputNovaTarefa.value === ""
+        inputNovaTarefa.value === "";
     } else if (inputNovaTarefa.value != "") {
-        listaTarefas.innerHTML += `<li>${inputNovaTarefa.value}</li>`
+        listaTarefas.innerHTML += `<li>${inputNovaTarefa.value} <img class="lixeira" src="./imagens/icon.svg" alt="ícone de lixeira"> </li>`;
+        tarefas.push(inputNovaTarefa.value)
     } else {
         inputNovaTarefa.value === ""
     }
+}
+console.log(todosLi)
+console.log(tarefas)
+
+function addNovaTarefaEnter (e) {
+    if (inputNovaTarefa.value === " ") {
+        inputNovaTarefa.value === "";
+        clean()
+    } else if (e.keyCode === 13 && inputNovaTarefa.value != "") {
+    listaTarefas.innerHTML += `<li>${inputNovaTarefa.value} <img class="lixeira" src="./imagens/icon.svg" alt="ícone de lixeira"> </li>`;
+    tarefas.push(inputNovaTarefa.value);
+    clean()
+    } else {inputNovaTarefa.value === ""}
 }
 
 function clean () {
     inputNovaTarefa.value = ""
 }
 
+inputNovaTarefa.addEventListener ('keypress', addNovaTarefaEnter)
 button.addEventListener ('click', addNovaTarefa)
 button.addEventListener('click', clean)
