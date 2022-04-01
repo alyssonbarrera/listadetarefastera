@@ -97,10 +97,18 @@ section h2 {
     height: 40px;
     width: 85%;
     border-radius: 5px;
-    border: 1px solid #0CCBDE;
+    border: 1px solid #0CCBDE;    
+}
 
-
-    
+.button {
+    background-image: url(../imagens/icon.svg);
+    background-position: center;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 @media (max-width: 770px) {
@@ -196,6 +204,6 @@ section h2 {
     text-decoration: none;
   }
   
-  .concluida{
+.concluida{
       text-decoration: line-through;
   }

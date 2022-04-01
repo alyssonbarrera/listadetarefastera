@@ -75,43 +75,64 @@ let inputNovaTarefa = document.querySelector('#inputNovaTarefa')
 let button = document.querySelector('#btnNovaTarefa')
 let li = document.querySelector('li')
 let lixeira = document.querySelector('.lixeira')
-let Lis =  document.getElementsByTagName('li')
+let ul = document.querySelector('ul')
+let tarefas = ['Ir ao supermercado', 'Estudar programação', 'Atualizar o linkedIn']
 
-todosLi = [Lis]
+mostrarTarefas()
 
-let tarefas = []
+function mostrarTarefas () {
 
-let listaTarefas = document.querySelector('ul')
+    inputNovaTarefa.value = ''
 
-function addNovaTarefa () {
+    for(título of tarefas) {
+        
+        let elementoTarefa = document.createElement('li')
+        let títuloTarefa = document.createTextNode(título)
 
-    if (inputNovaTarefa.value === " ") {
-        inputNovaTarefa.value === "";
-    } else if (inputNovaTarefa.value != "") {
-        listaTarefas.innerHTML += `<li>${inputNovaTarefa.value} <img class="lixeira" src="./imagens/icon.svg" alt="ícone de lixeira"> </li>`;
-        tarefas.push(inputNovaTarefa.value)
-    } else {
-        inputNovaTarefa.value === ""
+        let btnLixeira = document.createElement('input')
+        btnLixeira.setAttribute('type', 'button')
+        btnLixeira.setAttribute('class', 'button')
+        let position = tarefas.indexOf(título)
+
+        btnLixeira.setAttribute('onclick', `deletar(${position})`)
+
+        elementoTarefa.appendChild(títuloTarefa);
+        ul.appendChild(elementoTarefa)
+        elementoTarefa.appendChild(btnLixeira)
+
+
     }
 }
-console.log(todosLi)
-console.log(tarefas)
 
-function addNovaTarefaEnter (e) {
-    if (inputNovaTarefa.value === " ") {
-        inputNovaTarefa.value === "";
-        clean()
-    } else if (e.keyCode === 13 && inputNovaTarefa.value != "") {
-    listaTarefas.innerHTML += `<li>${inputNovaTarefa.value} <img class="lixeira" src="./imagens/icon.svg" alt="ícone de lixeira"> </li>`;
-    tarefas.push(inputNovaTarefa.value);
-    clean()
-    } else {inputNovaTarefa.value === ""}
+function addNovaTarefa () {
+    let títuloTarefa = inputNovaTarefa.value
+
+    if(títuloTarefa === " ") {
+        títuloTarefa === ""
+    }else if (títuloTarefa != "") {
+        tarefas.push(títuloTarefa)
+        inputNovaTarefa.value = ''
+    } else {títuloTarefa === ""}
+    
+    while(ul.firstChild) {
+        ul.removeChild(ul.firstChild)
+    }
+
+    mostrarTarefas()
 }
+
+console.log(tarefas)
 
 function clean () {
     inputNovaTarefa.value = ""
 }
 
-inputNovaTarefa.addEventListener ('keypress', addNovaTarefaEnter)
 button.addEventListener ('click', addNovaTarefa)
 button.addEventListener('click', clean)
+
+function deletar (position) {
+
+    tarefas.splice(position, 1)
+    ul.innerHTML = ''
+    mostrarTarefas()
+}
