@@ -82,11 +82,10 @@ mostrarTarefas()
 
 function mostrarTarefas () {
 
-    inputNovaTarefa.value = ''
-
     for(título of tarefas) {
         
         let elementoTarefa = document.createElement('li')
+        elementoTarefa.classList.add('aberta')
         let títuloTarefa = document.createTextNode(título)
 
         let btnLixeira = document.createElement('input')
@@ -100,15 +99,22 @@ function mostrarTarefas () {
         ul.appendChild(elementoTarefa)
         elementoTarefa.appendChild(btnLixeira)
 
-
     }
 }
+let liAll = document.querySelectorAll('li')
+console.log(liAll)
+
+for(let i=0; i < tarefas.length; i++) {
+    liAll[i].addEventListener('dblclick', concluirTarefa)
+}
+
+console.log(liAll)
 
 function addNovaTarefa () {
     let títuloTarefa = inputNovaTarefa.value
 
-    if(títuloTarefa === " ") {
-        títuloTarefa === ""
+    if(títuloTarefa.match(/^(\s)+$/)) {
+        return false
     }else if (títuloTarefa != "") {
         tarefas.push(títuloTarefa)
         inputNovaTarefa.value = ''
@@ -125,6 +131,37 @@ console.log(tarefas)
 
 function clean () {
     inputNovaTarefa.value = ""
+}
+
+inputNovaTarefa.addEventListener('keypress', function (e) {
+    let títuloTarefa = inputNovaTarefa.value
+    if(títuloTarefa.match(/^(\s)+$/)) {
+        return false
+    }
+    else if(e.which == 13 && títuloTarefa != "") {
+        tarefas.push(inputNovaTarefa.value)
+        inputNovaTarefa.value = ""
+    } else{títuloTarefa = ""}
+
+    while(ul.firstChild) {
+        ul.removeChild(ul.firstChild)
+    }
+
+    mostrarTarefas()
+})
+
+console.log(tarefas)
+
+function concluirTarefa () {
+    if(this.classList.contains('concluida')){
+        this.setAttribute('class', 'aberta')
+    } else if(this.classList.contains('aberta')){
+            this.setAttribute('class', 'concluida')
+    } else {this.setAttribute('class', 'concluida')}
+}
+
+for(let i = 0; i < tarefas.length; i++) {
+    liAll[i].addEventListener('dblclick', concluirTarefa)
 }
 
 button.addEventListener ('click', addNovaTarefa)
